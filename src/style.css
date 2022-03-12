@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap');
+/* ^ Name: Comfortaa; */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+/* ^ Name: Montserrat; */
+
+html * {
+	color: white;
+}
+
+h1 {font-size: 2em;font-weight: none;}
+h2 {font-size: 1.5em;font-weight: none;}
+h3 {font-size: 1.17em;font-weight: none;}
+h4 {font-size: 1.00em;font-weight: none;}
+h5 {font-size: 0.83em;font-weight: none;}
+h6 {font-size: 0.67em;font-weight: none;}
+
+body {background-color: rgb(18, 18, 18)}
