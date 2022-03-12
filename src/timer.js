@@ -55,7 +55,9 @@ function dnf() {
 }
 
 function stop() {
+    let TimeScore = stopwatch.innerHTML
     clearTimeout(timeoutId);
+    isStarted = false;
 }
  
 function reset() {
