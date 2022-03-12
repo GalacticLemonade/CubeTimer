@@ -7,6 +7,14 @@ html * {
 	color: white;
 }
 
+.title {
+    font-family: "Comfortaa";
+}
+
+.body {
+    font-family: "Montserrat";
+}
+
 h1 {font-size: 2em;font-weight: none;}
 h2 {font-size: 1.5em;font-weight: none;}
 h3 {font-size: 1.17em;font-weight: none;}
