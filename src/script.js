@@ -44,15 +44,18 @@ function start() {
         }
  
         stopwatch.innerHTML = min + ':' + sec + '.' + ms;
- 
+
         start();
- 
     }, 10);
 }
 
 function dnf() {
     clearTimeout(timeoutId);
     isStarted = false;
+}
+
+function stop() {
+    clearTimeout(timeoutId);
 }
  
 function reset() {
