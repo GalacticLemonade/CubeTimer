@@ -23,17 +23,16 @@ store.set("BestTime", "30:00:00");
 console.log(store.get("BestTime"));
 
 function convertToMs(str) {
-    console.log(str);
     var splitString = str.toString().split(":");
     let minutes = parseInt(splitString[0]);
     let seconds = parseInt(splitString[1]);
     let ms = parseInt(splitString[2]);
 
-    console.log(minutes+", "+seconds+", "+ms);
 
     let convertedMinutes = minutes * 60000;
     let convertedSeconds = seconds * 1000;
 
+    console.log(convertedMinutes + convertedSeconds + ms);
     return(convertedMinutes + convertedSeconds + ms)
 }
 
