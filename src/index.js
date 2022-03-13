@@ -1,17 +1,9 @@
 const {app, BrowserWindow, ipcMain} = require("electron");
-const Store = require('./dataStorage.js');
 const path = require('path');
 
 if (require('electron-squirrel-startup')) {
   app.quit();
 }
-
-const store = new Store({
-    configName: 'user-data',
-    defaults: {
-        besttime: '30:00:00'
-    }
-});
 
 const createWindow = () => {
   // Create the browser window.
