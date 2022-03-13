@@ -1,7 +1,7 @@
 {
   "name": "cubetimer",
-  "productName": "cubetimer",
-  "version": "1.0.0",
+  "productName": "Cube-Timer",
+  "version": "1.0.2",
   "description": "Time your Rubik's cube solves!",
   "main": "src/index.js",
   "scripts": {
