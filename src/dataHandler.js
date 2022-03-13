@@ -86,15 +86,9 @@ function stop() {
         let currentBestMS = convertToMs(stopwatch.innerHTML);
 
 
-        if (currentBestMS >= previousBestMS) {
-            let diff = currentBestMS - previousBestMS;
-            console.log(diff);
-
-            if (diff > 0) {
-                // yay!!! you got faster!!
-                new_best_alert.innerText = "New best!";
-                store.set("BestTime", currentBest)
-            }
+        if (currentBestMS < previousBestMS) {
+            new_best_alert.innerText = "New best!";
+            store.set("BestTime", stopwatch.innerHTML)
         }
 
     }else {
@@ -113,8 +107,6 @@ function reset() {
     isStarted = false;
     new_best_alert.innerText = "";
 }
-
-stop();
 
 window.onkeydown = function(ev) {
     if (ev.which == spaceCode) {
