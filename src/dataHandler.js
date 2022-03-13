@@ -1,6 +1,6 @@
 // Constants
 
-const Store = require('./dataStorage.js');
+const Store = require('./dataStorage.min.js');
 
 const store = new Store({
     configName: 'user-data',
