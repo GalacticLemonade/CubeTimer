@@ -19,17 +19,22 @@ var sec = 0;
 var min = 0;
 var isStarted = false
 
+store.set("BestTime", "30:00:00");
+console.log(store.get("BestTime"));
+
 function convertToMs(str) {
+    console.log(str);
     var splitString = str.toString().split(":");
-    let minutes = parseInt(splitString[1]);
-    let seconds = parseInt(splitString[2]);
-    let ms = parseInt(splitString[3]);
+    let minutes = parseInt(splitString[0]);
+    let seconds = parseInt(splitString[1]);
+    let ms = parseInt(splitString[2]);
 
     console.log(minutes+", "+seconds+", "+ms);
 
     let convertedMinutes = minutes * 60000;
     let convertedSeconds = seconds * 1000;
 
+    return(convertedMinutes + convertedSeconds + ms)
 }
 
 function start() {
@@ -77,8 +82,8 @@ function stop() {
     let TimeScore = stopwatch.innerHTML
     clearTimeout(timeoutId);
     isStarted = false;
-    if (store.get("Best-Time") != "") {
-        let previousBestMS = convertToMs(store.get("Best-Time"));
+    if (store.get("BestTime") != "") {
+        let previousBestMS = convertToMs(store.get("BestTime"));
         let currentBestMS = convertToMs(stopwatch.innerHTML);
 
 
@@ -89,15 +94,15 @@ function stop() {
             if (diff > 0) {
                 // yay!!! you got faster!!
                 new_best_alert.innerText = "New best!";
-                store.set("Best-Time", currentBest)
+                store.set("BestTime", currentBest)
             }
         }
 
     }else {
-        store.set("Best-Time", "30:00:00");
+        store.set("BestTime", "30:00:00");
         stop();
     }
-    hitime.innerHTML = "Your current fastest solve time is: " + store.get("Best-Time") + "!"
+    hitime.innerHTML = "Your current fastest solve time is: " + store.get("BestTime") + "!"
 }
  
 function reset() {
