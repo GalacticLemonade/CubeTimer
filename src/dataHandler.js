@@ -58,7 +58,7 @@ function dnf() {
     clearTimeout(timeoutId);
     stopwatch.innerHTML = 'DNF';
     isStarted = false;
-
+}
 function stop() {
     let TimeScore = stopwatch.innerHTML
     clearTimeout(timeoutId);
