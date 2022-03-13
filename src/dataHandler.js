@@ -18,6 +18,8 @@ var sec = 0;
 var min = 0;
 var isStarted = false
 
+console.log(store.get("WorstTime"));
+
 function start() {
     timeoutId = setTimeout(function() {
         isStarted = true;
