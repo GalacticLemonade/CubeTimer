@@ -108,6 +108,8 @@ function reset() {
     new_best_alert.innerText = "";
 }
 
+stop();
+
 window.onkeydown = function(ev) {
     if (ev.which == spaceCode) {
         if (isStarted == true) {
