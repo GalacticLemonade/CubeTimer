@@ -2,8 +2,8 @@
   "name": "cubetimer",
   "productName": "cubetimer",
   "version": "1.0.0",
-  "description": "My Electron application description",
-  "main": "src/index.js",
+  "description": "Time your Rubik's cube solves!",
+  "main": "src/index.min.js",
   "scripts": {
     "start": "electron-forge start",
     "package": "electron-forge package",
