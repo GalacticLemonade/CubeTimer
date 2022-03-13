@@ -4,7 +4,7 @@ const Store = require('electron-store');
 
 const store = new Store();
 
-const altCode = 18;
+const altCode = 16;
 const ctrlCode = 17;
 const spaceCode = 32;
 
