@@ -52,9 +52,12 @@ function start() {
 }
 
 function dnf() {
+    ms = 0;
+    sec = 0;
+    min = 0;
     clearTimeout(timeoutId);
+    stopwatch.innerHTML = 'DNF';
     isStarted = false;
-}
 
 function stop() {
     let TimeScore = stopwatch.innerHTML
