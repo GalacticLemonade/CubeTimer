@@ -83,8 +83,11 @@ function stop() {
         let curMili = SecAndMiliCurrent[2];
 
         if (curMin <= prevMin) {
+            console.log("current minutes is less than previous minutes");
             if (curSec <= prevSec) {
+                console.log("current seconds is less than previous seconds");
                 if (curMili < prevMili) {
+                    console.log("all faster!!!");
                     // yay!!! you got faster!!
                     new_best_alert.innerText = "New best!";
                     store.set("Best-Time", currentBest)
