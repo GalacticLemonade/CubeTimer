@@ -5,6 +5,7 @@ const Store = require('electron-store');
 const store = new Store();
 
 const altCode = 18;
+const ctrlCode = 17;
 const spaceCode = 32;
 
 // Variables
@@ -67,4 +68,19 @@ function reset() {
     min = 0;
     clearTimeout(timeoutId);
     stopwatch.innerHTML = '00:00.00';
+    isStarted = false;
+}
+
+window.onkeydown = function(ev) {
+    if (ev.which == spaceCode) {
+        if (isStarted == true) {
+            stop()
+        } else {
+            start();
+        }
+    }else if (ev.which == ctrlCode) {
+        reset()
+    }else if (ev.which == altCode) {
+        dnf()
+    }
 }
