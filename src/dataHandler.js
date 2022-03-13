@@ -64,7 +64,7 @@ function stop() {
     let TimeScore = stopwatch.innerHTML
     clearTimeout(timeoutId);
     isStarted = false;
-    if (store.get("Best-Time")) {
+    if (store.get("Best-Time") != "") {
         let previousBest = store.get("Best-Time");
         let currentBest = stopwatch.innerHTML;
 
