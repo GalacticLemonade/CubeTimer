@@ -20,10 +20,10 @@ var min = 0;
 var isStarted = false
 
 function convertToMs(str) {
-    var splitString = parseInt(str.toString().split(":"));
-    let minutes = splitString[1];
-    let seconds = splitString[2];
-    let ms = splitString[3];
+    var splitString = str.toString().split(":");
+    let minutes = parseInt(splitString[1]);
+    let seconds = parseInt(splitString[2]);
+    let ms = parseInt(splitString[3]);
 
     console.log(minutes+", "+seconds+", "+ms);
 
