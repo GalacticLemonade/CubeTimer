@@ -1,8 +1,13 @@
 // Constants
 
-const Store = require('electron-store');
+const Store = require('./dataStorage.js');
 
-const store = new Store();
+const store = new Store({
+    configName: 'user-data',
+    defaults: {
+        besttime: '30:00:00'
+    }
+});
 
 const altCode = 16;
 const ctrlCode = 17;
