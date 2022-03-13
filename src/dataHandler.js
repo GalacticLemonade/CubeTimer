@@ -10,6 +10,7 @@ const spaceCode = 32;
 // Variables
 
 var stopwatch = document.getElementById('stopwatch-display');
+var new_best_alert = document.getElementById('new-best-alert');
 var timeoutId = null;
 var ms = 0;
 var sec = 0;
