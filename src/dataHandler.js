@@ -19,6 +19,19 @@ var sec = 0;
 var min = 0;
 var isStarted = false
 
+function convertToMs(str) {
+    var splitString = parseInt(str.toString().split(":"));
+    let minutes = splitString[1];
+    let seconds = splitString[2];
+    let ms = splitString[3];
+
+    console.log(minutes+", "+seconds+", "+ms);
+
+    let convertedMinutes = minutes * 60000;
+    let convertedSeconds = seconds * 1000;
+
+}
+
 function start() {
     timeoutId = setTimeout(function() {
         isStarted = true;
@@ -46,7 +59,7 @@ function start() {
             min = '0' + min;
         }
  
-        stopwatch.innerHTML = min + ':' + sec + '.' + ms;
+        stopwatch.innerHTML = min + ':' + sec + ':' + ms;
 
         start();
     }, 10);
@@ -65,37 +78,23 @@ function stop() {
     clearTimeout(timeoutId);
     isStarted = false;
     if (store.get("Best-Time") != "") {
-        let previousBest = store.get("Best-Time");
-        let currentBest = stopwatch.innerHTML;
+        let previousBestMS = convertToMs(store.get("Best-Time"));
+        let currentBestMS = convertToMs(stopwatch.innerHTML);
 
-        let MinAndSecPrevious = previousBest.split(":");
-        let SecAndMiliPrevious = previousBest.split(".");
 
-        let MinAndSecCurrent = currentBest.split(":");
-        let SecAndMiliCurrent = previousBest.split(".");
+        if (currentBestMS >= previousBestMS) {
+            let diff = currentBestMS - previousBestMS;
+            console.log(diff);
 
-        let prevMin = MinAndSecPrevious[1];
-        let prevSec = MinAndSecPrevious[2];
-        let prevMili = SecAndMiliPrevious[2];
-
-        let curMin = MinAndSecCurrent[1];
-        let curSec = MinAndSecCurrent[2];
-        let curMili = SecAndMiliCurrent[2];
-
-        if (curMin <= prevMin) {
-            console.log("current minutes is less than previous minutes");
-            if (curSec <= prevSec) {
-                console.log("current seconds is less than previous seconds");
-                if (curMili < prevMili) {
-                    console.log("all faster!!!");
-                    // yay!!! you got faster!!
-                    new_best_alert.innerText = "New best!";
-                    store.set("Best-Time", currentBest)
-                }
+            if (diff > 0) {
+                // yay!!! you got faster!!
+                new_best_alert.innerText = "New best!";
+                store.set("Best-Time", currentBest)
             }
         }
+
     }else {
-        store.set("Best-Time", "30:00.00");
+        store.set("Best-Time", "30:00:00");
         stop();
     }
     hitime.innerHTML = "Your current fastest solve time is: " + store.get("Best-Time") + "!"
@@ -106,7 +105,7 @@ function reset() {
     sec = 0;
     min = 0;
     clearTimeout(timeoutId);
-    stopwatch.innerHTML = '00:00.00';
+    stopwatch.innerHTML = '00:00:00';
     isStarted = false;
     new_best_alert.innerText = "";
 }
